@@ -32,8 +32,8 @@ def bad_request(error):
     app.logger.warning(message)
     return (
         jsonify(
-            status = status.HTTP_400_BAD_REQUEST,
-            error = "Bad Request", message = message
+            status=status.HTTP_400_BAD_REQUEST,
+            error="Bad Request", message=message
         ),
         status.HTTP_400_BAD_REQUEST,
     )
@@ -47,7 +47,7 @@ def not_found(error):
     status5 = status.HTTP_404_NOT_FOUND
     er = "Not Found"
     msg = message
-    return (jsonify(status = status5, error = er, message = msg), status5)
+    return (jsonify(status=status5, error=er, message=msg), status5)
 
 
 @app.errorhandler(status.HTTP_405_METHOD_NOT_ALLOWED)
