@@ -46,8 +46,7 @@ def not_found(error):
     app.logger.warning(message)
     return (
         jsonify(status=status.HTTP_404_NOT_FOUND,
-        error="Not Found", message=message),
-        status.HTTP_404_NOT_FOUND,
+        error="Not Found", message=message), status.HTTP_404_NOT_FOUND,
     )
 
 
@@ -101,10 +100,12 @@ def internal_server_error(error):
     """Handles unexpected server error with 500_SERVER_ERROR"""
     message = str(error)
     app.logger.error(message)
+    error1="Internal Server Error"
+    status1=status.HTTP_500_INTERNAL_SERVER_ERROR
     return (
         jsonify(
-            status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            error="Internal Server Error",
+            status=status1,
+            error=error1,
             message=message,
         ),
         status.HTTP_500_INTERNAL_SERVER_ERROR,
