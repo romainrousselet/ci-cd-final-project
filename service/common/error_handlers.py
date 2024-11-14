@@ -32,8 +32,8 @@ def bad_request(error):
     app.logger.warning(message)
     return (
         jsonify(
-            status=status.HTTP_400_BAD_REQUEST, 
-            error="Bad Request", message=message
+            status = status.HTTP_400_BAD_REQUEST,
+            error = "Bad Request", message = message
         ),
         status.HTTP_400_BAD_REQUEST,
     )
@@ -44,10 +44,10 @@ def not_found(error):
     """Handles resources not found with 404_NOT_FOUND"""
     message = str(error)
     app.logger.warning(message)
-    return (
-        jsonify(status=status.HTTP_404_NOT_FOUND,
-        error="Not Found", message=message), status.HTTP_404_NOT_FOUND,
-    )
+    status5 = status.HTTP_404_NOT_FOUND
+    er = "Not Found"
+    msg = message
+    return (jsonify(status = status5, error = er, message = msg), status5)
 
 
 @app.errorhandler(status.HTTP_405_METHOD_NOT_ALLOWED)
@@ -100,8 +100,8 @@ def internal_server_error(error):
     """Handles unexpected server error with 500_SERVER_ERROR"""
     message = str(error)
     app.logger.error(message)
-    error1="Internal Server Error"
-    status1=status.HTTP_500_INTERNAL_SERVER_ERROR
+    error1 = "Internal Server Error"
+    status1 = status.HTTP_500_INTERNAL_SERVER_ERROR
     return (
         jsonify(
             status=status1,
